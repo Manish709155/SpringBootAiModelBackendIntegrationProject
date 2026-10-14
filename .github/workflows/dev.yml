@@ -1,27 +1,23 @@
-name: Spring Ai Model Integration
+version: 2
 
-on:
-  push:
-    branches:
-      - develop
-      
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "daily"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    open-pull-requests-limit: 10
 
-    steps:
-      - uses: actions/checkout@v4
+    commit-message:
+      prefix: "deps"
 
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
+    labels:
+      - "dependencies"
+      - "maven"
+      - "spring-boot"
 
-      - name: Show Structure
-        run: |
-          pwd
-          ls -R
+    reviewers:
+      - "Manish709155"
 
-      - name: Find Pom
-        run: find . -name pom.xml
+    assignees:
+      - "Manish709155"

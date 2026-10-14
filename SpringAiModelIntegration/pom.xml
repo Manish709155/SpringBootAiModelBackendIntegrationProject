@@ -10,11 +10,7 @@
 	</parent>
 	<groupId>com.spring.ai.model.integration</groupId>
 	<artifactId>SpringAiModelIntegration</artifactId>
-<<<<<<< HEAD
 	<version>1.0.0</version>
-=======
-	<version>0.0.1-SNAPSHOT</version>
->>>>>>> 8572d3fc3c46cb44eb452c7d3cbee644787d6d4f
 	<name/>
 	<description/>
 	<url/>

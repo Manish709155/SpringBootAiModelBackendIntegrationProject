@@ -1,0 +1,85 @@
+------------ 1. First follow the below URL page for learning Spring ai.------------
+
+https://spring.io/projects/spring-ai
+
+
+------------- 2. Integration of Open AI Model create a secret Key after
+creating the account on https://platform.openai.com/
+
+- For creating the secret key follow the link
+
+- https://platform.openai.com/api-keys
+
+- and click on create secret key button provide application name
+it will be generate like this
+
+- Open AI Key=${OPENAI_API_KEY}
+- Add your OpenAI key to the application.properties paste be like this
+
+spring.ai.openai.api-key=${OPENAI_API_KEY}
+
+Note :- Add Billing without billing it will not work https://platform.openai.com/settings/organization/billing/
+
+Error will get:-429: You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.
+--------------- 2. Integration of Anthropic Model -----------
+
+Steps-1
+
+Log in or sign up: Go to console.anthropic.com and log in using Google, your email, or SSO.
+
+Steps-2
+
+• Navigate to API Keys: Click on the API Keys tab, which is typically found in the main dashboard menu or under your account settings.
+
+Steps-3
+• Generate the key: Click the "Create Key" button.
+
+steps-4
+
+• Save your key: Give your key a name if prompted, then copy and safely store the generated secret key immediately. You will not be able to view it again after closing the window.
+
+
+Anthropic Key =
+
+${ANTHROPIC_API_KEY}
+
+
+steps-5
+
+Add your OpenAI key to the application.properties paste be like this
+
+spring.ai.openai.api-key=${ANTHROPIC_API_KEY}
+
+Note :- Add Billing without billing it will not work
+
+400: {"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API.
+Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CfyhY9NeSZDnPdwHPNwPX"}
+
+
+---------- Integration  ollama model -----------------
+
+1. download ollama  using url
+
+https://ollama.com/download/windows
+
+2. open windows powershell and paste command line
+
+irm https://ollama.com/install.ps1 | iex   // or download manually
+
+3.Installation verification
+
+ollama --version
+
+4.model download
+
+ollama pull deepseek-r1:14b
+
+5.Server check
+
+ollama list
+
+ollama pull mistral  // download any model as per your need or whatever you have set in application properties
+
+5.Set below properties in application.properties file
+
+spring.ai.openai.chat.options.model=deepseek-r1:14b

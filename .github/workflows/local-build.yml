@@ -6,6 +6,11 @@ on:
       - develop
       - main
 
+  pull_request:
+    branches:
+      - develop
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,14 +29,19 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Show Files
+      - name: Debug Repository Structure
         run: |
+          echo "Current Directory:"
           pwd
+          echo "================================="
+          echo "Repository Structure:"
           ls -la
-          find . -name pom.xml
-
-      - name: Grant Execute Permission
-        run: chmod +x mvnw
+          echo "================================="
+          echo "POM Files:"
+          find . -name "pom.xml"
+          echo "================================="
+          echo "Maven Wrapper:"
+          find . -name "mvnw"
 
       - name: Build Project
-        run: ./mvnw clean install
+        run: mvn clean install
